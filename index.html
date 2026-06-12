@@ -1,18 +1,18 @@
-```html
 <!DOCTYPE html>
+
 <html lang="hy">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Սուրբ Մկրտություն | Արմեն, Ռոբերտ և Կատրին</title>
 
-<title>Կնունքի Հրավիրատոմս</title>
+<!-- Google Fonts -->
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 /* =========================
-   RESET
+   GLOBAL STYLES
 ========================= */
 *{
     margin:0;
@@ -21,226 +21,439 @@
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    overflow-x:hidden;
+    font-family:'Montserrat',sans-serif;
+    background:#f8fafc;
+    color:#1e293b;
+    line-height:1.6;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    padding:90px 0;
+}
+
+h1,h2,h3{
+    font-weight:700;
+}
+
+p{
+    color:#64748b;
 }
 
 /* =========================
    HERO SECTION
 ========================= */
-
 .hero{
     min-height:100vh;
-    position:relative;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
+    background:
+    linear-gradient(rgba(15,23,42,.65),rgba(15,23,42,.65)),
+    url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
     color:white;
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.45)
-    ),
-    url('https://cdn.shopify.com/s/files/1/0816/3232/9987/files/photo_5276249400973925481_y.jpg?v=1780926529');
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-}
-
 .hero-content{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:900px;
+    max-width:800px;
 }
 
-/* Family Name */
-
-.family{
-    font-size:6rem;
-    font-weight:700;
-    letter-spacing:10px;
-    text-transform:uppercase;
+.hero h1{
+    font-size:4rem;
     margin-bottom:20px;
 }
 
-/* Names */
-
-.names{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    margin-bottom:35px;
-}
-
-.names span{
+.hero h2{
     font-size:2rem;
-    font-weight:300;
-    letter-spacing:4px;
+    color:#f8fafc;
+    margin-bottom:20px;
 }
 
-/* Subtitle */
-
-.subtitle{
-    font-size:1.2rem;
-    max-width:700px;
-    margin:auto;
-    margin-bottom:40px;
-    line-height:1.8;
-}
-
-/* Event Cards */
-
-.events{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
+.hero p{
+    color:#e2e8f0;
     margin-bottom:35px;
-}
-
-.card{
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(10px);
-    padding:20px 25px;
-    border-radius:18px;
-    min-width:260px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,.18);
-}
-
-.card h3{
-    margin-bottom:10px;
     font-size:1.1rem;
 }
 
-.card p{
-    font-size:.95rem;
-}
-
-/* Button */
-
 .btn{
     display:inline-block;
-    text-decoration:none;
-    background:white;
-    color:#222;
-    padding:15px 35px;
+    padding:15px 32px;
     border-radius:50px;
+    text-decoration:none;
+    background:#2563eb;
+    color:white;
     font-weight:600;
     transition:.3s;
 }
 
 .btn:hover{
+    background:#1d4ed8;
     transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
 }
 
-/* Footer Text */
+/* =========================
+   ABOUT SECTION
+========================= */
+.about{
+    text-align:center;
+}
 
-.note{
-    margin-top:35px;
-    font-size:1rem;
-    opacity:.95;
+.section-title{
+    font-size:2.5rem;
+    margin-bottom:20px;
+    color:#0f172a;
+}
+
+.about p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   SLIDESHOW
+========================= */
+.slideshow-section{
+    background:white;
+}
+
+.slider{
+    width:100%;
+    max-width:900px;
+    height:550px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:25px;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+}
+
+.slides{
+    width:400%;
+    height:100%;
+    display:flex;
+    animation:slide 20s infinite;
+}
+
+.slide{
+    width:25%;
+    position:relative;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.slide-content{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.slide-content h2{
+    font-size:2.3rem;
+    margin-bottom:15px;
+}
+
+.slide-content p{
+    color:#fff;
+    max-width:700px;
+}
+
+@keyframes slide{
+    0%,20%{transform:translateX(0);}
+    25%,45%{transform:translateX(-25%);}
+    50%,70%{transform:translateX(-50%);}
+    75%,95%{transform:translateX(-75%);}
+    100%{transform:translateX(0);}
+}
+
+/* =========================
+   FEATURES SECTION
+========================= */
+.features{
+    background:#f1f5f9;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.feature-card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.feature-card h3{
+    margin-bottom:12px;
+    color:#2563eb;
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    max-width:700px;
+    margin:auto;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.contact-box h3{
+    margin-bottom:15px;
+}
+
+.contact-box p{
+    margin:10px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
 }
 
 /* =========================
    MOBILE
 ========================= */
-
 @media(max-width:768px){
 
-.family{
-    font-size:3rem;
-    letter-spacing:4px;
+.hero h1{
+    font-size:2.5rem;
 }
 
-.names span{
-    font-size:1.3rem;
+.hero h2{
+    font-size:1.4rem;
 }
 
-.subtitle{
-    font-size:1rem;
+.slider{
+    height:420px;
 }
 
-.card{
-    width:100%;
+.slide-content h2{
+    font-size:1.5rem;
+}
+
+.section-title{
+    font-size:2rem;
 }
 
 }
-
 </style>
+
 </head>
 <body>
 
-<!-- ===================================
-     HERO / INVITATION SECTION
-=================================== -->
+<!-- =========================
+     HERO SECTION
+========================= -->
 
 <section class="hero">
-
     <div class="hero-content">
-
-        <!-- Family Name -->
-        <h1 class="family">HOVSEPYAN</h1>
-
-        <!-- Names -->
-        <div class="names">
-            <span>Armen</span>
-            <span>Robert</span>
-            <span>Katrin</span>
-        </div>
-
-        <!-- Invitation Text -->
-        <p class="subtitle">
-            Սիրով հրավիրում ենք Ձեզ մասնակցելու
-            մեր փոքրիկի Սուրբ Կնունքի արարողությանը
-            և կիսելու այս գեղեցիկ ու հիշարժան օրը մեզ հետ։
-        </p>
-
-        <!-- Event Information -->
-        <div class="events">
-
-            <div class="card">
-                <h3>⛪ Սուրբ Գայանե Եկեղեցի</h3>
-                <p>04.07.2026</p>
-                <p>Ժամը՝ 16:00</p>
-            </div>
-
-            <div class="card">
-                <h3>🍽 Nur House</h3>
-                <p>Տոնական ընդունելություն</p>
-                <p>Ժամը՝ 18:00</p>
-            </div>
-
-        </div>
-
-        <!-- CTA Button -->
-        <a href="#" class="btn">
-            Սիրով Սպասում Ենք Ձեզ
-        </a>
-
-        <p class="note">
-            Ձեր ներկայությունը կդարձնի այս օրը առավել ջերմ և հիշարժան։
-        </p>
-
+        <h1>ՍՈՒՐԲ ՄԿՐՏՈՒԹՅՈՒՆ</h1>
+        <h2>Արմենի, Ռոբերտի և Կատրինի</h2>
+        <p>04.07.2026</p>
+        <a href="#slideshow" class="btn">Տեսնել Հրավերը</a>
     </div>
+</section>
+
+<!-- =========================
+     ABOUT SECTION
+========================= -->
+
+<section class="about">
+    <div class="container">
+        <h2 class="section-title">Սիրով Հրավիրում Ենք</h2>
+        <p>
+            Սիրով հրավիրում ենք Ձեզ Արմենի, Ռոբերտի և Կատրինի
+            Սուրբ Մկրտության արարողությանը, որը տեղի կունենա
+            2026 թվականի հուլիսի 04-ին։
+        </p>
+    </div>
+</section>
+
+<!-- =========================
+     SLIDESHOW SECTION
+========================= -->
+
+<section class="slideshow-section" id="slideshow">
+    <div class="container">
+
+```
+    <div class="slider">
+        <div class="slides">
+
+            <!-- Slide 1 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80" alt="">
+                <div class="slide-content">
+                    <h2>Արմենի, Ռոբերտի և Կատրինի</h2>
+                    <p>ՍՈՒՐԲ ՄԿՐՏՈՒԹՅՈՒՆ<br>04.07.2026</p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1600&q=80" alt="">
+                <div class="slide-content">
+                    <h2>Հրավեր</h2>
+                    <p>
+                        Սիրով հրավիրում ենք Ձեզ Արմենի, Ռոբերտի և Կատրինի
+                        Սուրբ Մկրտության արարողությանը,
+                        որը տեղի կունենա 2026 թվականի հուլիսի 04-ին։
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="https://cdn.shopify.com/s/files/1/0816/3232/9987/files/photo_5276249400973925481_y.jpg?v=1780926529" alt="">
+                <div class="slide-content">
+                    <h2>Սուրբ Գայանե Եկեղեցի</h2>
+                    <p>Արարողության սկիզբը՝ 16:00</p>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img src="https://cdn.shopify.com/s/files/1/0816/3232/9987/files/photo_5276249400973925473_y.jpg?v=1780926239" alt="">
+                <div class="slide-content">
+                    <h2>NUR HOUSE Ռեստորան</h2>
+                    <p>Տոնական ընդունելություն՝ 18:00</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+```
 
 </section>
 
+<!-- =========================
+     FEATURES SECTION
+========================= -->
+
+<section class="features">
+    <div class="container">
+
+```
+    <h2 class="section-title" style="text-align:center;">
+        Օրվա Ծրագիրը
+    </h2>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+            <h3>Մկրտության Արարողություն</h3>
+            <p>
+                Սուրբ Գայանե եկեղեցի
+                <br>
+                16:00
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Ընտանեկան Տոն</h3>
+            <p>
+                Ջերմ և ուրախ մթնոլորտ
+                սիրելի հյուրերի հետ։
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Տոնական Ընդունելություն</h3>
+            <p>
+                NUR HOUSE ռեստորան
+                <br>
+                18:00
+            </p>
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     CONTACT SECTION
+========================= -->
+
+<section class="contact">
+    <div class="container">
+
+```
+    <h2 class="section-title">Սպասում Ենք Ձեզ</h2>
+
+    <div class="contact-box">
+        <h3>Մեր Հատուկ Օրը</h3>
+        <p>📅 04 Հուլիս 2026</p>
+        <p>⛪ Սուրբ Գայանե Եկեղեցի — 16:00</p>
+        <p>🍽 NUR HOUSE Ռեստորան — 18:00</p>
+        <p>
+            Ձեր ներկայությունը կդարձնի այս օրը
+            առավել ուրախ և հիշարժան։
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+    Արմեն • Ռոբերտ • Կատրին | Սուրբ Մկրտություն 2026
+</footer>
+
 </body>
 </html>
-```
+
