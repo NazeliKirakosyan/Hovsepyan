@@ -7,413 +7,240 @@
 
 <title>Կնունքի Հրավիրատոմս</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ==========================
-   GLOBAL STYLES
-========================== */
+
+/* =========================
+   RESET
+========================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     font-family:'Poppins',sans-serif;
-    background:#fafafa;
-    color:#333;
-    line-height:1.6;
+    overflow-x:hidden;
 }
 
-/* Container */
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
-/* ==========================
+/* =========================
    HERO SECTION
-========================== */
+========================= */
+
 .hero{
     min-height:100vh;
+    position:relative;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
     color:white;
-    position:relative;
-    overflow:hidden;
 }
 
 .hero::before{
     content:"";
     position:absolute;
     inset:0;
+
     background:
-    linear-gradient(rgba(20,20,20,.45),
-    rgba(20,20,20,.45)),
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.45)
+    ),
     url('https://cdn.shopify.com/s/files/1/0816/3232/9987/files/photo_5276249400973925481_y.jpg?v=1780926529');
+
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
 }
 
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:800px;
-    padding:20px;
+    width:90%;
+    max-width:900px;
 }
 
-.hero h1{
-    font-size:3.5rem;
-    margin-bottom:15px;
+/* Family Name */
+
+.family{
+    font-size:6rem;
     font-weight:700;
+    letter-spacing:10px;
+    text-transform:uppercase;
+    margin-bottom:20px;
 }
 
-.hero h2{
-    font-size:1.4rem;
-    font-weight:300;
-    margin-bottom:30px;
-}
+/* Names */
 
-.hero p{
-    font-size:1.1rem;
+.names{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
     margin-bottom:35px;
 }
 
-/* CTA Button */
+.names span{
+    font-size:2rem;
+    font-weight:300;
+    letter-spacing:4px;
+}
+
+/* Subtitle */
+
+.subtitle{
+    font-size:1.2rem;
+    max-width:700px;
+    margin:auto;
+    margin-bottom:40px;
+    line-height:1.8;
+}
+
+/* Event Cards */
+
+.events{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.card{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(10px);
+    padding:20px 25px;
+    border-radius:18px;
+    min-width:260px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.18);
+}
+
+.card h3{
+    margin-bottom:10px;
+    font-size:1.1rem;
+}
+
+.card p{
+    font-size:.95rem;
+}
+
+/* Button */
+
 .btn{
     display:inline-block;
+    text-decoration:none;
+    background:white;
+    color:#222;
     padding:15px 35px;
     border-radius:50px;
-    background:white;
-    color:#6d4cff;
-    text-decoration:none;
     font-weight:600;
     transition:.3s;
 }
 
 .btn:hover{
     transform:translateY(-3px);
-    box-shadow:0 12px 25px rgba(0,0,0,.2);
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
 }
 
-/* ==========================
-   SECTION STYLES
-========================== */
-section{
-    padding:90px 0;
+/* Footer Text */
+
+.note{
+    margin-top:35px;
+    font-size:1rem;
+    opacity:.95;
 }
 
-.section-title{
-    text-align:center;
-    margin-bottom:60px;
-}
+/* =========================
+   MOBILE
+========================= */
 
-.section-title h2{
-    font-size:2.2rem;
-    color:#222;
-}
-
-.section-title p{
-    color:#777;
-    margin-top:10px;
-}
-
-/* ==========================
-   ABOUT SECTION
-========================== */
-.about{
-    background:white;
-}
-
-.about-content{
-    max-width:800px;
-    margin:auto;
-    text-align:center;
-    font-size:1.05rem;
-}
-
-/* ==========================
-   FEATURES SECTION
-========================== */
-.features{
-    background:#f5f7ff;
-}
-
-.features-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.feature-card{
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    text-align:center;
-    transition:.3s;
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
-}
-
-.feature-card:hover{
-    transform:translateY(-8px);
-}
-
-.feature-icon{
-    font-size:2rem;
-    margin-bottom:15px;
-}
-
-.feature-card h3{
-    margin-bottom:12px;
-    color:#222;
-}
-
-/* ==========================
-   EVENT INFO
-========================== */
-.event{
-    background:white;
-}
-
-.event-box{
-    max-width:900px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-}
-
-.info-card{
-    background:#f7f8fc;
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
-    transition:.3s;
-}
-
-.info-card:hover{
-    transform:translateY(-5px);
-}
-
-.info-card h3{
-    color:#6d4cff;
-    margin-bottom:10px;
-}
-
-/* ==========================
-   CONTACT SECTION
-========================== */
-.contact{
-    background:linear-gradient(135deg,#6d4cff,#8f6fff);
-    color:white;
-    text-align:center;
-}
-
-.contact h2{
-    margin-bottom:20px;
-    font-size:2rem;
-}
-
-.contact p{
-    max-width:700px;
-    margin:auto;
-    margin-bottom:25px;
-}
-
-/* ==========================
-   FOOTER
-========================== */
-footer{
-    text-align:center;
-    padding:20px;
-    background:#222;
-    color:white;
-}
-
-/* ==========================
-   MOBILE RESPONSIVE
-========================== */
 @media(max-width:768px){
 
-.hero h1{
-    font-size:2.2rem;
+.family{
+    font-size:3rem;
+    letter-spacing:4px;
 }
 
-.hero h2{
-    font-size:1.1rem;
+.names span{
+    font-size:1.3rem;
 }
 
-.features-grid{
-    grid-template-columns:1fr;
+.subtitle{
+    font-size:1rem;
 }
 
-.event-box{
-    grid-template-columns:1fr;
+.card{
+    width:100%;
 }
 
-section{
-    padding:70px 0;
 }
-}
+
 </style>
 </head>
 <body>
 
-<!-- ==========================
-     HERO SECTION
-========================== -->
-<header class="hero">
+<!-- ===================================
+     HERO / INVITATION SECTION
+=================================== -->
+
+<section class="hero">
+
     <div class="hero-content">
-        <h1>Կնունքի Հրավիրատոմս</h1>
 
-        <h2>
-            Հովսեփյան Արմեն • Ռոբերտ • Կատրին
-        </h2>
+        <!-- Family Name -->
+        <h1 class="family">HOVSEPYAN</h1>
 
-        <p>
+        <!-- Names -->
+        <div class="names">
+            <span>Armen</span>
+            <span>Robert</span>
+            <span>Katrin</span>
+        </div>
+
+        <!-- Invitation Text -->
+        <p class="subtitle">
             Սիրով հրավիրում ենք Ձեզ մասնակցելու
             մեր փոքրիկի Սուրբ Կնունքի արարողությանը
-            և կիսելու այս օրվա ուրախությունը մեզ հետ։
+            և կիսելու այս գեղեցիկ ու հիշարժան օրը մեզ հետ։
         </p>
 
-        <a href="#event" class="btn">
-            Տեսնել Մանրամասները
-        </a>
-    </div>
-</header>
+        <!-- Event Information -->
+        <div class="events">
 
-<!-- ==========================
-     ABOUT SECTION
-========================== -->
-<section class="about">
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Մեր Հրաշալի Օրը</h2>
-            <p>Սիրո, օրհնության և ընտանեկան ջերմության օր</p>
-        </div>
-
-        <div class="about-content">
-            <p>
-                Մեզ համար մեծ պատիվ կլինի Ձեր ներկայությունը
-                մեր փոքրիկի կյանքի այս կարևոր և օրհնյալ
-                իրադարձությանը։ Եկեք միասին կիսենք
-                այս գեղեցիկ պահերը և ստեղծենք
-                հիշարժան հուշեր։
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<!-- ==========================
-     FEATURES SECTION
-========================== -->
-<section class="features">
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Ինչու է այս օրը հատուկ</h2>
-        </div>
-
-        <div class="features-grid">
-
-            <div class="feature-card">
-                <div class="feature-icon">⛪</div>
-                <h3>Սուրբ Պատարագ</h3>
-                <p>Օրհնված և հոգևոր արարողություն։</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">💝</div>
-                <h3>Ընտանեկան Ջերմություն</h3>
-                <p>Սիրելի մարդկանց ներկայությամբ։</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎉</div>
-                <h3>Տոնական Երեկո</h3>
-                <p>Երաժշտություն, ուրախություն և հիշողություններ։</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==========================
-     EVENT SECTION
-========================== -->
-<section id="event" class="event">
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Միջոցառման Մանրամասներ</h2>
-            <p>04 Հուլիս 2026</p>
-        </div>
-
-        <div class="event-box">
-
-            <div class="info-card">
+            <div class="card">
                 <h3>⛪ Սուրբ Գայանե Եկեղեցի</h3>
-                <p><strong>Ժամը՝</strong> 16:00</p>
-                <p>Կնունքի Սուրբ Արարողություն</p>
+                <p>04.07.2026</p>
+                <p>Ժամը՝ 16:00</p>
             </div>
 
-            <div class="info-card">
-                <h3>🍽 Nur House Ռեստորան</h3>
-                <p><strong>Ժամը՝</strong> 18:00</p>
-                <p>Տոնական Հյուրասիրություն</p>
+            <div class="card">
+                <h3>🍽 Nur House</h3>
+                <p>Տոնական ընդունելություն</p>
+                <p>Ժամը՝ 18:00</p>
             </div>
 
         </div>
 
-    </div>
-
-</section>
-
-<!-- ==========================
-     CONTACT SECTION
-========================== -->
-<section class="contact">
-
-    <div class="container">
-
-        <h2>Սիրով Սպասում Ենք Ձեզ</h2>
-
-        <p>
-            Ձեր ներկայությունը կդարձնի այս օրը
-            ավելի ջերմ, ուրախ և հիշարժան։
-        </p>
-
+        <!-- CTA Button -->
         <a href="#" class="btn">
-            Հանդիպում ենք 04.07.2026
+            Սիրով Սպասում Ենք Ձեզ
         </a>
 
+        <p class="note">
+            Ձեր ներկայությունը կդարձնի այս օրը առավել ջերմ և հիշարժան։
+        </p>
+
     </div>
 
 </section>
-
-<!-- ==========================
-     FOOTER
-========================== -->
-<footer>
-    © 2026 Baptism Invitation • Hovsepyan Family
-</footer>
 
 </body>
 </html>
 ```
-
